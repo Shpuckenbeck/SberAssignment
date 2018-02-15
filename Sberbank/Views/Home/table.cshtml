@@ -1,0 +1,43 @@
+﻿@model IndexViewModel
+<div class="form-group">
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-7">
+            <table class="table table-striped table-bordered" style="width:690px" >
+                <thead style="display:block">
+                    <tr style="background-color:#006600; color:white">
+                        <th colspan="2" width="326">Показатели заёмщика</th>
+                        <th width="149">Валюта</th>
+                        <th width="194">Индексы</th>
+                        <th style="width:21px; display:none"></th>
+                    </tr>
+                    <tr style="background-color:#c4d79b">
+                        <th width="120">Дата</th>
+                        <th width="206">Выручка</th>
+                        <th width="149">Серебро, руб.</th>
+                        <th width="194">Индекс ММВБ Last</th>
+                        <th style="width:21px; display:none"></th>
+                    </tr>
+                </thead>
+                <tbody style="display:block; max-height:200px; overflow:auto">
+                    @foreach (var a in Model.records)
+                    {
+                        <tr>
+                            <td style="width:120px">@a.date.ToString("dd.MM.yyyy")</td>
+                            <td style="width:206px">@a.earnings</td>
+                            <td style="width:149px">@a.currency</td>
+                            <td style="width:194px">@a.index</td>
+                        </tr>
+
+                    }
+                    <tr>
+                        <td width="120">@DateTime.Now.ToString("dd.MM.yyyy")</td>
+                        <td><input style="width:189px" id="earninput" /></td>
+                        <td><input style="width:132px" id="currinput" /></td>
+                        <td><input style="width:177px" id="indinput" /></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

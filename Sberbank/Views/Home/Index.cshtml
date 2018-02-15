@@ -1,0 +1,114 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Главная";
+}
+
+<br />
+<div class="container">
+    <div class="form-horizontal">
+        <div id="tablestuff">
+            @Html.Partial("table", Model)
+
+        </div>
+
+
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-7">
+                    <input type="button" class="btn btn-primary" name="btnSave" id="btnSave" onclick="saverec()" value="Добавить" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Import" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="file" id="fUpload" name="file" class="form-control" />
+        </div>
+        <div class="col-md-8">
+            <input type="submit"  id="btnUpload" value="Импорт" />
+        </div>
+    </div>
+    
+    <br />
+    <div id="dvData"></div>
+</form>
+<form>
+    <div class="row">
+        <div class="col-md-8" style="padding-top:10px;">
+            <button>Экспорт</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    saverec = function ()
+    {
+        var obj = new Object();
+        obj.earnings = $("#earninput").val();
+        obj.currency = $("#currinput").val();
+        obj.index = $("#indinput").val();
+        console.log(JSON.stringify(obj));
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+           
+            type: "POST",
+            url: "/Home/addrec",
+            data: JSON.stringify(obj),
+            success: function (result) {
+                console.log(obj);
+            }
+        })
+            .done(function (partialViewResult) {
+                $("#tablestuff").html(partialViewResult);
+            });
+
+    }
+</script>
+
+@*<script>
+   upload = function() {
+            var fileExtension = ['xls', 'xlsx'];
+            var filename = $('#fUpload').val();
+            if (filename.length == 0) {
+                alert("Выберите файл");
+                return false;
+            }
+            else {
+                var extension = filename.replace(/^.*\./, '');
+                if ($.inArray(extension, fileExtension) == -1) {
+                    alert("Выберите файл Excel");
+                    return false;
+                }
+            }
+            var fdata = new FormData();
+            var fileUpload = $("#fUpload").get(0);
+            var files = fileUpload.files;
+            fdata.append(files[0].name, files[0]);
+            $.ajax({
+                type: "POST",
+                url: "/Home/Import",               
+                data: fdata,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response.length == 0)
+                        alert('Возникла ошибка');
+                    //else {
+                    //    $('#dvData').html(response);
+                    //}
+                },
+                //error: function (e) {
+                //    $('#dvData').html(e.responseText);
+                //}
+            });
+        
+    }
+</script>*@

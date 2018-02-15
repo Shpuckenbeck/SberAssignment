@@ -1,0 +1,24 @@
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.csprojResolveAssemblyReference.cache
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.csproj.CoreCompileInputs.cache
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\obj\Debug\netcoreapp1.1\UserSecretsAssemblyInfo.cs
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.AssemblyInfoInputs.cache
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.AssemblyInfo.cs
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.deps.json
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.runtimeconfig.json
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.runtimeconfig.dev.json
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.dll
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.pdb
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.dll
+C:\Users\Jimmy\Documents\Visual Studio 2017\Projects\Sberbank\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.pdb
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.deps.json
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.runtimeconfig.json
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.runtimeconfig.dev.json
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.dll
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\bin\Debug\netcoreapp1.1\Sberbank.pdb
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.csprojResolveAssemblyReference.cache
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.csproj.CoreCompileInputs.cache
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.AssemblyInfoInputs.cache
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.AssemblyInfo.cs
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.dll
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\obj\Debug\netcoreapp1.1\Sberbank.pdb
+C:\Users\Jimmy\Documents\GitHub\SberAssignment\Sberbank\obj\Debug\netcoreapp1.1\UserSecretsAssemblyInfo.cs
