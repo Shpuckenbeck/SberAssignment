@@ -6,6 +6,11 @@
     <UserSecretsId>aspnet-Sberbank-D0C9C515-23D6-45B6-9AE6-C01614930433</UserSecretsId>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20180215164445_test.cs" />
+    <Compile Remove="Migrations\20180215164445_test.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="EPPlus.Core" Version="1.5.4" />
