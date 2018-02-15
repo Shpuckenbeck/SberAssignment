@@ -64,22 +64,12 @@ namespace Sberbank.Controllers
             inmodel.records = _context.Records.ToList();
             return PartialView("table", inmodel);
         }
-       
+       /// <summary>
+       /// Экспорт данных из БД в файл Excel
+       /// </summary>
+       /// <returns></returns>
         public FileResult Export ()
         {
-            //string folderName = "Upload";
-            //string webRootPath = _hostingEnvironment.WebRootPath;
-            //string newPath = Path.Combine(webRootPath, folderName);
-            //if (!Directory.Exists(newPath))
-            //{
-            //    Directory.CreateDirectory(newPath);
-            //}
-            //var newFile = new FileInfo(newPath + @"\Данные.xlsx");
-            //if (newFile.Exists)
-            //{
-            //    newFile.Delete();  // ensures we create a new workbook
-            //    newFile = new FileInfo(newPath + @"\Данные.xlsx");
-            //}
             string wwwrootPath = _hostingEnvironment.WebRootPath;
             string fileName = @"Данные.xlsx";
             FileInfo file = new FileInfo(Path.Combine(wwwrootPath, fileName));
@@ -201,6 +191,68 @@ namespace Sberbank.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Генерация .csv из файла Excel
+        /// </summary>
+        /// <param name="file"></param>
+        /// <returns></returns>
+        public FileResult CSV(IFormFile file)
+        {
+            string folderName = "Upload";
+            string webRootPath = _hostingEnvironment.WebRootPath;
+            string newPath = Path.Combine(webRootPath, folderName);
+            if (!Directory.Exists(newPath))
+            {
+                Directory.CreateDirectory(newPath);
+            }
+            if (file.Length > 0)
+            {
+                string sFileExtension = Path.GetExtension(file.FileName).ToLower();
+                string fullPath = Path.Combine(newPath, file.FileName);
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    file.CopyTo(stream); 
+                                        
+
+                }
+                FileInfo existingfile = new FileInfo(fullPath);
+                using (ExcelPackage package = new ExcelPackage(existingfile))
+                {
+                    ExcelWorksheet sheet = package.Workbook.Worksheets[1]; //открытие файла для анализа      
+                    var output = new StringBuilder();
+                    string headers = "";
+                    for (int i = 1; i < 4; i++)
+                    {
+                        headers += sheet.Cells[2, i].Value.ToString() + ", ";
+                    }
+                    headers += sheet.Cells[2, 4].Value.ToString();
+                    output.AppendLine(headers);
+                    for (int i = sheet.Dimension.Start.Row + 2; i <= sheet.Dimension.End.Row; i++)
+                    {                       
+                        DateTime parseddate = DateTime.Now;
+                        Double parsedearn;
+                        float parsedcurr, parsedind;
+                        bool parse1, parse2, parse3, parse4;
+                        //parse1 = DateTime.TryParse(sheet.Cells[i, 1].Value.ToString(), out parseddate);
+                        parse2 = Double.TryParse(sheet.Cells[i, 2].Value.ToString(), out parsedearn);
+                        parse3 = Single.TryParse(sheet.Cells[i, 3].Value.ToString(), out parsedcurr);
+                        parse4 = Single.TryParse(sheet.Cells[i, 4].Value.ToString(), out parsedind);
+                        if (parse2 && parse3 && parse4) 
+                        {
+                            output.AppendLine(DateTime.Now.Date.ToString() + ", " + parsedearn.ToString() + ", " + parsedcurr.ToString() + ", " + parsedind.ToString());
+                        }
+                        
+
+
+                    }
+                    byte[] buffer = Encoding.GetEncoding(1251).GetBytes(output.ToString());
+                    return File(buffer, "text/csv", $"Данные.csv");
+                }
+            }
+
+            return null;
+
+        }
         
     }
 }

@@ -37,6 +37,20 @@
     <br />
     <div id="dvData"></div>
 </form>
+
+<form asp-action="CSV" method="post" enctype="multipart/form-data">
+    <div class="row">
+        <div class="col-md-4">
+            <input type="file" id="fCSV" name="file" class="form-control" />
+        </div>
+        <div class="col-md-8">
+            <input type="submit" id="btnCSV" value="Генерация CSV" />
+        </div>
+    </div>
+
+    <br />
+    
+</form>
 <form asp-action="Export">
     <div class="row">
         <div class="col-md-8" style="padding-top:10px;">
