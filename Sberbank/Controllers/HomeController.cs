@@ -233,13 +233,13 @@ namespace Sberbank.Controllers
                         Double parsedearn;
                         float parsedcurr, parsedind;
                         bool parse1, parse2, parse3, parse4;
-                        //parse1 = DateTime.TryParse(sheet.Cells[i, 1].Value.ToString(), out parseddate);
+                        parse1 = DateTime.TryParse(sheet.Cells[i, 1].Value.ToString(), out parseddate);
                         parse2 = Double.TryParse(sheet.Cells[i, 2].Value.ToString(), out parsedearn);
                         parse3 = Single.TryParse(sheet.Cells[i, 3].Value.ToString(), out parsedcurr);
                         parse4 = Single.TryParse(sheet.Cells[i, 4].Value.ToString(), out parsedind);
-                        if (parse2 && parse3 && parse4) 
+                        if (parse1&&parse2 && parse3 && parse4) 
                         {
-                            output.AppendLine(DateTime.Now.Date.ToString() + ", " + parsedearn.ToString() + ", " + parsedcurr.ToString() + ", " + parsedind.ToString());
+                            output.AppendLine(parseddate.ToString() + ", " + parsedearn.ToString() + ", " + parsedcurr.ToString() + ", " + parsedind.ToString());
                         }
                         
 
